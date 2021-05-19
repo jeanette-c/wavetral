@@ -126,7 +126,7 @@ namespace JBS {
 		{
 			for (unsigned int harmonic = 0;harmonic<max_harmonic;harmonic++)
 			{
-				samples[sample] += sin((2 * M_PI * (sample - 0.5) * (harmonic + 1)) / 128) * its_data[harmonic];
+				samples[sample] += sin((2 * M_PI * (sample + 0.5) * (harmonic + 1)) / 128) * its_data[harmonic];
 			}
 
 			// Keep track of maximum amplitude
