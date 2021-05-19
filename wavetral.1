@@ -1,0 +1,100 @@
+.\" wavetral released under the GNU General Public Licence version 3.
+.TH wavetral 1 "May 2021" "Version 0.9.0"
+.SH NAME
+wavetral \- Convert between single cycle waveforms and spectra
+.SH SYNOPSIS
+.SY
+wavetral
+.OP \-h
+.SY
+wavetral
+.OP \-v
+.SY
+wavetral
+.OP \-l input_file
+.SY
+wavetral
+.OP \-i input_file
+.OP \-f input_format
+.OP \-t input_type
+.OP \-w input_wave_number
+.OP \-o output_file
+.OP \-F output_format
+.OP \-T output_type
+.OP \-W output_wave_number
+.OP \-s output_size
+.OP \-r output_samplerate
+.OP \-z zero_threshold
+.SH DESCRIPTION
+Wavetral is a small program to convert single cycle waveforms to audio spectra
+and vice versa. It supports multiple input and output formats to allow you
+to use your favourite waveforms in different synthesizers.
+.PP
+Currently there is specific support for Csound, Yoshimi and the Waldorf
+Microwave II/XT, as well as any other synthesizer that can import waveforms
+as audio or plaintext.
+.SH OPTIONS
+.SS INFORMATION OPTIONS
+.TP
+\-h \-\-help
+Show a help message, listing all options
+.TP
+\-v \-\-version
+Show the version of wavetral
+.TP
+\-l \-\-list input_file
+List the items (waveforms or spectra) in the given input file (currently only
+supported with the mw2 Microwave II/XT format)
+.SS CONVERSION OPTIONS
+.TP
+\-i \-\-input input_file
+Name of the input file
+.TP
+\-f \-\-input_format format
+Format of the input file (only necessary if the format is not autodetected).
+Supported formats are: audio (.wav and .aiff), text (one value per line),
+ftable (Csound ftsave(k) format ftables) and mw2 (Waldorf Microwave II/XT
+wave dump)
+.TP
+\-t \-\-input_type type
+Type of the input (wave or harm) for waveform or harmonic spectrum
+respectively. This is only required for text and Csound ftable files.
+.TP
+\-w \-\-input_wave wave_number
+Number of the waveform to be converted (only supported for the Waldorf
+Microwave II/XT mw2 format)
+.TP
+\-o \-\-output output_file
+File to write the converted wave/spectrum to.
+.TP
+\-F \-\-output_format format
+Format of the output (only required if not autodetected). Currently supported
+formats are: audio (.wav and .aiff), text (one value per line), ysc (Yoshimi
+script) and mw2 (Waldorf Microwave II/XT wave dump). Yoshimi scripts can be
+run locally (using runlocal) in the wave context of the AddSynth voices or
+the PadSynth.
+.TP
+\-T \-\-output_type type
+Type of the output (wave or harm) for waveform or harmonic spectrum
+respectively. This is only required for text files.
+.TP
+\-W \-\-output_wave wave_number
+Wave number to be written (only supported for the Waldorf Microwave II/XT
+mw2 format)
+.TP
+\-s \-\-output_size size
+The number of samples or harmonics to be written to the output file.
+.TP
+\-r \-\-samplerate samplerate
+Samplerate of the output file (only supported for the audio format, the default
+is 44100).
+.TP
+\-z \-\-threshold
+Threshold at which harmonics should be set to 0 (default 1 * 10(-5) or 0.00001)
+.SH BUGS
+There are currently no known bugs. If you discover a bug, please contact the
+autho at jeanette@juliencoder.de.
+.SH COPYRIGHT
+Copyright 2021 Jeanette C.
+
+Wavetral is released under the GNU General Public Licence version 3.

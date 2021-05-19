@@ -1,0 +1,53 @@
+Wavetral - convert between single cycle waveforms and audio spectra
+Copyright (c) 2021 Jeanette C., <jeanette@juliencoder.de>
+
+SUMMARY
+wavetral is a small program to convert single cycle waveforms to spectra and
+vice versa. It supports different input and output formats to export
+your waveforms/spectra from one synthesizer to another.
+
+FEATURES
+	* Read multiple formats: audio (.wav and .aiff files), Waldorf Microwave
+		II/XT, Csound (ftsave(k), plaintext with one value per line
+	* Write multiple formats: audio (.wav and .aiff), plaintext with one value
+		per line and Yoshimi scripts (to be run locally in the wave context
+		of the AddSynth voices or the PadSynth
+	* If possible detects input and output format
+	* Resampling between audio formats
+	* Changing the number of harmonics between different spectral formats
+	* List available waveforms inside a Microwave II/XT wave dump file
+
+REQUIREMENTS
+Libraries:
+	boost_program_options
+	boost_filesystem
+	fftw3
+	libsndfile
+	libsamplerate
+Standard development tools (a c++ compiler, linker, make, etc.)
+CMake - to bild the software
+
+INSTALLATION
+wavetral uses CMake to build the software.
+Following these steps will build and install the software:
+cd wavetral
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+
+LICENSE
+This software is released under the terms of the GNU General Public License
+(GPL) version 3. It is free software. For further details see the file
+COPYING .
+
+CREDITS and ACKNOWLEDGEMENTS
+Many thanks go to Fons Adriaensen for his invaluable support and teaching along
+the way, as well as for his kindness and patience with me.
+
+BUGS
+There are no known issues at the moment. If you suspect a bug, please send
+an e-mail to me at: jeanette@juliencoder.de and mention wavetral in the subject.
+
+Thanks and enjoy the software!
