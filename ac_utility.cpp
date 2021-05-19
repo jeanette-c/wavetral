@@ -46,7 +46,7 @@ namespace JBS {
 	// Assume that samples have been scaled to a maximum of 1 by any converter
 	void ac_convert_sample_mw2(double sample, char *sysex, unsigned int index)
 	{
-		int int_sample = int(round(sample * 128));
+		int int_sample = int(round(sample * 127));
 		int_sample ^=0x80;
 		sysex[index] = ((int_sample >> 4) & 0x0f);
 		sysex[index + 1] = (int_sample & 0x0f);

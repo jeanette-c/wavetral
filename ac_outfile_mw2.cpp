@@ -17,10 +17,6 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include <iostream>
-using std::cout;
-using std::endl;
-
 #include "ac_outfile_mw2.hpp"
 #include "ac_utility.hpp"
 #include <cmath>
@@ -130,7 +126,7 @@ namespace JBS {
 		{
 			for (unsigned int harmonic = 0;harmonic<max_harmonic;harmonic++)
 			{
-				samples[sample] += sin((2 * M_PI * sample * (harmonic + 1)) / 128) * its_data[harmonic];
+				samples[sample] += sin((2 * M_PI * (sample - 0.5) * (harmonic + 1)) / 128) * its_data[harmonic];
 			}
 
 			// Keep track of maximum amplitude
@@ -164,19 +160,15 @@ namespace JBS {
 		// Begin processing if state is good and file is open
 		if (its_good == true)
 		{
-			cout << "JBS process: it's good.\n";
 			if (its_open == true)
 			{
-				cout << "JBS process: file is open.\n";
 				// Wave number (its_item) must be greater 1000 for a user wave
 				if (its_item >=1000)
 				{
-					cout << "JBS process: wavenumber within range.\n";
 					// Make the wave form
 					make_wave();
 					if (its_ready == true) // if wave creation was successful
 					{
-						cout << "JBS process: wave is ready.\n";
 						// Write header
 						its_sysex_string[0] = char(0xf0); // SysEx start
 						its_sysex_string[1] = char(0x3e); // Waldorf
