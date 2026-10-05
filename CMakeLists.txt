@@ -3,7 +3,7 @@
 # This is free software distributed under the terms of the GNU General Public
 # License version 3. See the file COPYING for further information on the GPL.
 # Set up CMake
-cmake_minimum_required (VERSION 3.1)
+cmake_minimum_required (VERSION 3.6...3.30)
 # Include additional find modules
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 # Enable c++11 standard
@@ -22,7 +22,7 @@ if (CMAKE_SYSTEM_NAME MATCHES "Darwin") # if this is Mac OS
 	set(Boost_USE_STATIC_LIBS ON) # for MAC OS
 	set(Boost_USE_STATIC_RUNTIME ON) # for MAC OS
 endif (CMAKE_SYSTEM_NAME MATCHES "Darwin")
-find_package(Boost 1.58 REQUIRED COMPONENTS program_options filesystem system)
+find_package(Boost 1.58 REQUIRED COMPONENTS program_options filesystem)
 if (Boost_PROGRAM_OPTIONS_FOUND)
 	message(STATUS "found libboost_program_options")
 	set (INCS ${INCS} ${Boost_INCLUDE_DIRS})
